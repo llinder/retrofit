@@ -106,6 +106,10 @@ final class RequestBuilder implements RequestInterceptor.RequestFacade {
     }
     try {
       String encodedValue = URLEncoder.encode(String.valueOf(value), "UTF-8");
+      // URLEncoder encodes for use as a query parameter. Path encoding uses %20 to
+      // encode spaces rather than +.  Query encoding difference specified in HTML spec.
+      // Any remaining plus signs represent spaces as already URLEncoded.
+      encodedValue = encodedValue.replace("+", "%20");
       relativeUrl = relativeUrl.replace("{" + name + "}", encodedValue);
     } catch (UnsupportedEncodingException e) {
       throw new RuntimeException(

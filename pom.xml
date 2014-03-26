@@ -25,7 +25,7 @@
 
   <groupId>com.squareup.retrofit</groupId>
   <artifactId>parent</artifactId>
-  <version>1.1.1</version>
+  <version>1.1.1-BLOOM</version>
   <packaging>pom</packaging>
 
   <name>Retrofit (Parent)</name>
@@ -172,4 +172,33 @@
       </plugin>
     </plugins>
   </build>
+
+    <distributionManagement>
+      <repository>
+        <id>bloom-release</id>
+        <name>bloom-release</name>
+        <url>http://artifactory.moolb.com/artifactory/apps-release-local</url>
+      </repository>
+      <snapshotRepository>
+        <id>bloom-snapshot</id>
+        <name>bloom-snapshot</name>
+        <url>http://artifactory.moolb.com/artifactory/apps-snapshot-local</url>
+      </snapshotRepository>
+    </distributionManagement>
+
+    <repositories>
+      <repository>
+        <id>bloom</id>
+        <name>bloom</name>
+        <url>http://artifactory.moolb.com/repo</url>
+        <snapshots>
+          <enabled>true</enabled>
+        </snapshots>
+        <releases>
+          <enabled>true</enabled>
+        </releases>
+      </repository>
+    </repositories>
+
+
 </project>
